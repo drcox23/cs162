@@ -6,9 +6,9 @@ public:
   string getMake();
   string getModel();
   int getYear();
-  void setMake(string xmake);
-  void setModel(string xmodel);
-  void setYear(int xyear);
+  void setMake(string);
+  void setModel(string);
+  void setYear(int);
 
 private:
   string make;
