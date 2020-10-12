@@ -1,5 +1,5 @@
 // Douglas Cox
-// Week 3, Exercise 1
+// Week 3, Exercise 2
 
 #include <iostream>
 #include <string>
