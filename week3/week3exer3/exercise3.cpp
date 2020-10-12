@@ -48,11 +48,13 @@ void loadData()
     employeeNum++;
   }
 
+  // perform gross pay calculation
   for (int i = 0; i < employeeNum; i++)
   {
     employs[i].grossPay = (employs[i].payRate * employs[i].hours);
   }
 
+  // write to file
   writeFile(employs, employeeNum);
 
   inFile.close();
@@ -78,5 +80,6 @@ void writeFile(Employee empData[], int employeeNum)
   {
     cout << right << setw(10) << empData[i].ID << setw(10) << empData[i].payRate << setw(5) << empData[i].hours << setw(10) << empData[i].grossPay << endl;
   }
+
   outfile.close();
 }
