@@ -92,17 +92,33 @@ void addStock(Stocks collection[], int &watchlistSize)
   cout << "enter company name" << endl;
   cin >> collection[watchlistSize].company;
 
+  while (cin.fail())
+  {
+    cin.clear();
+    cin.ignore(200, '\n');
+    cout << "Please enter a valid company name" << endl;
+    cin >> collection[watchlistSize].stockPrice;
+  }
+
   cout << "enter stock symbol" << endl;
   cin >> collection[watchlistSize].symbol;
-
-  cout << "enter today's stock price" << endl;
-  cin >> collection[watchlistSize].stockPrice;
 
   while (cin.fail())
   {
     cin.clear();
     cin.ignore(200, '\n');
-    cout << "Please enter a valid price" << endl;
+    cout << "Please enter a valid stock symbol" << endl;
+    cin >> collection[watchlistSize].stockPrice;
+  }
+
+  cout << "enter today's stock price" << endl;
+  cin >> collection[watchlistSize].stockPrice;
+
+  while (cin.fail() || collection[watchlistSize].stockPrice < 0)
+  {
+    cin.clear();
+    cin.ignore(200, '\n');
+    cout << "Please enter a valid price (number greater than 0)" << endl;
     cin >> collection[watchlistSize].stockPrice;
   }
 
