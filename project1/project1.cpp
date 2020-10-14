@@ -14,22 +14,22 @@ struct Stocks
   float stockPrice;
 };
 
-int showOptions();
+void showOptions(int &);
 void addStock(Stocks[], int &);
 void showWatchlist(Stocks[], int);
-void deleteStock(int);
+void deleteStock(Stocks[], int &);
 
 int main()
 {
   const int MAX_SIZE = 50;
-
-  int count = 0;
   int input;
+  int count = 0;
   Stocks watchlist[MAX_SIZE];
 
   do
   {
-    input = showOptions();
+    showOptions(input);
+
     if (input == 1)
     {
       addStock(watchlist, count);
@@ -40,17 +40,27 @@ int main()
     }
     else if (input == 3)
     {
-      //code
+      if (count > 0)
+      {
+        deleteStock(watchlist, count);
+        cout << "\nOk. Here is the updated watchlist:" << endl;
+        showWatchlist(watchlist, count);
+      }
+      else
+      {
+        cout << "Please add a stock to the watchlist in order to be able to delete a stock from the watchlist." << endl;
+      }
     }
 
-  } while (showOptions() != 4);
+  } while (input != 4);
 
   cout << "Thank you for using our program!! The program shall now quit" << endl;
 
   return (0);
 }
 
-int showOptions()
+// show menu options for creating a watchlist for stocks
+void showOptions(int &selection)
 {
   int choice;
 
@@ -72,12 +82,13 @@ int showOptions()
     cin >> choice;
   }
 
-  return choice;
+  selection = choice;
 }
 
+// add a stock to the watchlist
 void addStock(Stocks collection[], int &watchlistSize)
 {
-  //int size = watchlistSize;
+
   cout << "enter company name" << endl;
   cin >> collection[watchlistSize].company;
 
@@ -98,6 +109,7 @@ void addStock(Stocks collection[], int &watchlistSize)
   watchlistSize++;
 }
 
+// show watchlist of stocks that the user has put together
 void showWatchlist(Stocks collection[], int size)
 {
   if (size < 1)
@@ -114,4 +126,33 @@ void showWatchlist(Stocks collection[], int size)
            << "stock price: " << collection[i].stockPrice << endl;
     }
   }
+}
+
+// remove a stock from the watchlist
+void deleteStock(Stocks collection[], int &size)
+{
+  int stockSelect;
+
+  showWatchlist(collection, size);
+
+  cout << "\nWhich stock would you like to remove from the watchlist? \n"
+       << "Please enter the number associated with the stock" << endl;
+
+  cin >> stockSelect;
+  while (cin.fail() || (stockSelect > size) || stockSelect < 0)
+  {
+    cin.clear();
+    cin.ignore(200, '\n');
+    cout << "Please enter a valid stock number" << endl;
+    cin >> stockSelect;
+  }
+
+  for (int i = (stockSelect - 1); i < size; i++)
+  {
+    collection[i].company = collection[i + 1].company;
+    collection[i].symbol = collection[i + 1].symbol;
+    collection[i].stockPrice = collection[i + 1].stockPrice;
+  }
+
+  size--;
 }
