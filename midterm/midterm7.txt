@@ -1,0 +1,119 @@
+===========================
+Midterm 7 Instructions
+===========================
+
+Do the following three parts and upload the asked for files to
+the assignment folder for Midterm 7 by the due time
+indicated on the assignment folder. You will have 2 hours and
+50 minutes to do the exam. 
+
+You will need to attend the zoom session and at least type 
+‘here’ at the chat box.  Please don't use audio as noise might
+be disturbing to other students. Please monitor the chat box
+for any updates.
+
+You can ask questions (at the chat box please) and I can either
+answer them or not answer them.  I can clarify what you need to
+do but I cannot give you any help during the exam.
+
+Since I can’t monitor what you will be seeing on your computer,
+you can use notes and the textbook.  However, do not copy and 
+paste large amounts of code from the internet.  I will be copying
+your code into the Google prompt and if your copying large 
+amounts of code it will show up in my search results. If this 
+happens then you will get an automatic zero and will be ask  
+to take a makeup exam.
+
+You will need to do your coding at the Linux command line. 
+You can optionally use your own Linux command line or MacOS
+command line as long as it has a valid bash shell environment.  
+
+For Part II and III, I will provide you with source code to 
+work with. It will include a main function with some example
+arrays of numbers for you to test your code.  However, when
+I'm grading your submission, I will be using a different set 
+of numbers. So don’t write your code to only work with the 
+given data.
+
+Also, I will be copying your functions over to a different
+main file with the same main function but different data.
+So if you are re-writing the main function for debugging 
+purposes, make sure your code will work with the ORIGINAL 
+main function before you hand it in.
+
+====================================
+Part I Design a Class Definition
+====================================
+
+You are asked to design a class definition to be put in 
+a header file called fazzfizz.h  A jewelry store sells 
+FazzFizz which are a set of artsy necklaces. For each
+FazzFizz, the store wants to keep track of the following
+attributes:
+ 
+        * metal: This is the metal used in the jewelry
+                   Examples: "gold","silver","bronze"
+        * length: This is the length in inches. This is always
+                     a whole number of inches.
+        * price:  the price of this type of jewelry.
+
+Each attribute will have a corresponding getter(accessor)
+function or setter(mutator) function. PLEASE PUT ONLY FUNCTION
+PROTOTYPES IN YOUR CLASS; DO NOT ADD ANY FUNCTION IMPLEMENTATION
+CODE. These would normally be put into a .cpp file which you do
+not need to provide. 
+
+Also remember to add a default constructor as well as a constructor
+that takes the attributes.
+
+Submit your header file with the class definition to the d2l midterm
+assignment folder by the due time.
+
+==================================
+Part II Implement a Find Function
+==================================
+
+Download the midterm7.cpp file from the d2l folder. 
+You will implement a function that will involve 
+finding the last instance of a multiple of 5 in an array
+of integers and returning the index of this item.
+
+The array will be of integers that are positive numbers.
+Also, if there is no multiples of 5, the function should
+return a zero.
+
+EXAMPLES
+==========
+Array = 41, 45, 300, 50, 4, 91
+index is: 3
+Array =  5437, 4233, 23333, 55788
+index is: 0
+
+===================================== 
+Part III Implement Delete Function
+=====================================
+
+Find the last instance of a multiple of 5 in the given
+array and delete this from the array. If there are no
+multiples of 5, then delete the first element in the
+array.
+
+You can use the part II find function to get an index.
+
+Don't change the order of the other elements in the array.
+
+Upload the midterm7.cpp file to the d2l assignment
+folder before the due time.
+
+EXAMPLES
+==========
+BEFORE
+Array = 41, 45, 300, 50, 4, 91
+AFTER
+Array = 41, 45, 300, 4, 91
+BEFORE
+Array =  5437, 4233, 23333, 55788
+AFTER
+Array =  4233, 23333, 55788
+
+================================================
