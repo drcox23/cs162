@@ -2,17 +2,17 @@
 // Week 3, Exercise 2
 
 #include <iostream>
-#include <string>
+#include <cstring>
 #include "car.h"
 
 using namespace std;
 
-string Car::getMake()
+const char *Car::getMake()
 {
   return make;
 }
 
-string Car::getModel()
+const char *Car::getModel()
 {
   return model;
 }
@@ -22,14 +22,26 @@ int Car::getYear()
   return year;
 }
 
-void Car::setMake(string xmake)
+void Car::setMake(const char *xmake)
 {
-  make = xmake;
+  if (make != NULL)
+  {
+    delete[] make;
+  }
+
+  make = new char[strlen(xmake) + 1];
+  strcpy(make, xmake);
 }
 
-void Car::setModel(string xmodel)
+void Car::setModel(const char *xmodel)
 {
-  model = xmodel;
+  if (model != NULL)
+  {
+    delete[] model;
+  }
+
+  model = new char[strlen(xmodel) + 1];
+  strcpy(model, xmodel);
 }
 
 void Car::setYear(int xyear)
@@ -37,16 +49,35 @@ void Car::setYear(int xyear)
   year = xyear;
 }
 
+void Car::print() const
+{
+  cout << "Make: " << make << endl
+       << "Model: " << model << endl
+       << "Year: " << year << endl;
+}
+
 Car::Car()
 {
-  make = "";
-  model = "";
+  make = new char[MAX_STR + 1];
+  strcpy(make, "<no value>");
+
+  model = new char[MAX_STR + 1];
+  strcpy(model, "<no value>");
+
   year = 0;
 }
 
-Car::Car(string xmake, string xmodel, int xyear)
+Car::Car(const char *xmake, const char *xmodel, int xyear)
 {
-  make = xmake;
-  model = xmodel;
+  make = NULL;
+  setMake(xmake);
+  model = NULL;
+  setModel(xmodel);
   year = xyear;
+}
+
+Car::~Car()
+{
+  delete[] make;
+  delete[] model;
 }

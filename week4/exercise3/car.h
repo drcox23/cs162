@@ -1,19 +1,25 @@
+#include <cstring>
+
 using namespace std;
+
+const int MAX_STR = 100;
 
 class Car
 {
 public:
-  string getMake();
-  string getModel();
+  const char *getMake();
+  const char *getModel();
   int getYear();
-  void setMake(string);
-  void setModel(string);
+  void setMake(const char *);
+  void setModel(const char *);
   void setYear(int);
-  Car();                    //default constructor
-  Car(string, string, int); // constructor with member params
+  void print() const;
+  Car();                                //default constructor
+  Car(const char *, const char *, int); // constructor with member params
+  ~Car();                               //destructor
 
 private:
-  string make;
-  string model;
+  char *make;
+  char *model;
   int year;
 };
