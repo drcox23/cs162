@@ -41,3 +41,7 @@
 
 # tar files
 *.tar*
+
+# lecture files
+*.html*
+*.css*
