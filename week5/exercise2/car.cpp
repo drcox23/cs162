@@ -1,5 +1,5 @@
 // Douglas Cox
-// Week 6, Exercise 1
+// Week 6, Exercise 2
 // implementation file for Car class
 
 #include <iostream>
@@ -92,4 +92,23 @@ Car::Car(const Car &cpy)
   strcpy(model, cpy.model);
 
   year = cpy.year;
+}
+
+const Car Car::operator=(const Car &cpy)
+{
+  if (this != &cpy)
+  {
+    if (make != NULL)
+      delete[] make;
+    make = new char[strlen(cpy.make) + 1];
+    strcpy(make, cpy.make);
+
+    if (model != NULL)
+      delete[] model;
+    model = new char[strlen(cpy.model) + 1];
+    strcpy(model, cpy.model);
+
+    year = cpy.year;
+  }
+  return *this; //return this object
 }
