@@ -3,6 +3,7 @@
 // implementation file of general functions used in this program.
 
 #include "functions.h"
+//#include "collections.h"
 #include <iostream>
 #include <fstream>
 
@@ -38,7 +39,7 @@ void showOptions(int &selection)
 }
 
 // add a stock to the watchlist
-void addStock(Stocks collection[], int &watchlistSize)
+void addStock(Collections watchlist)
 {
   char icompany[MAX_SIZE];
   char isymbol[MAX_SIZE];
@@ -56,8 +57,6 @@ void addStock(Stocks collection[], int &watchlistSize)
   }
   cin.ignore(100, '\n');
 
-  collection[watchlistSize].setCompany(icompany);
-
   cout << "enter stock symbol" << endl;
   cin >> isymbol;
 
@@ -69,8 +68,6 @@ void addStock(Stocks collection[], int &watchlistSize)
     cin >> isymbol;
   }
   cin.ignore(100, '\n');
-
-  collection[watchlistSize].setSymbol(isymbol);
 
   cout << "enter today's stock price" << endl;
   cin >> istockPrice;
@@ -84,121 +81,5 @@ void addStock(Stocks collection[], int &watchlistSize)
   }
   cin.ignore(100, '\n');
 
-  collection[watchlistSize].setStockPrice(istockPrice);
-
-  watchlistSize++;
-}
-
-// show watchlist of stocks that the user has put together
-void showWatchlist(Stocks collection[], int size)
-{
-  if (size < 1)
-  {
-    cout << "There are no stocks in your watchlist, please add a stock to your watchlist first" << endl;
-  }
-  else
-  {
-    for (int i = 0; i < size; i++)
-    {
-      cout << "\n--- " << (i + 1) << " ---" << endl;
-      cout << "company name: " << collection[i].getCompany() << endl
-           << "stock symbol: " << collection[i].getSymbol() << endl
-           << "stock price: " << collection[i].getStockPrice() << endl;
-    }
-  }
-}
-
-// remove a stock from the watchlist
-void deleteStock(Stocks collection[], int &size)
-{
-  int stockSelect;
-
-  showWatchlist(collection, size);
-
-  cout << "\nWhich stock would you like to remove from the watchlist? \n"
-       << "Please enter the number associated with the stock" << endl;
-
-  cin >> stockSelect;
-  while (cin.fail() || (stockSelect > size) || stockSelect < 0)
-  {
-    cin.clear();
-    cin.ignore(200, '\n');
-    cout << "Please enter a valid stock number" << endl;
-    cin >> stockSelect;
-  }
-  cin.ignore(100, '\n');
-
-  for (int i = (stockSelect - 1); i < size; i++)
-  {
-    collection[i].setCompany(collection[i + 1].getCompany());
-    collection[i].setSymbol(collection[i + 1].getSymbol());
-    collection[i].setStockPrice(collection[i + 1].getStockPrice());
-  }
-
-  size--;
-}
-
-void exportToFile(Stocks collection[], int size)
-{
-  ofstream outfile;
-  string fileName;
-
-  cout << "What would you like to name the file (ex: watchlist.txt)" << endl;
-
-  cin >> fileName;
-  cin.ignore(100, '\n');
-
-  outfile.open(fileName);
-
-  for (int i = 0; i < size; i++)
-  {
-    outfile << collection[i].getCompany() << endl
-            << collection[i].getSymbol() << endl
-            << collection[i].getStockPrice() << endl;
-  };
-
-  cout << "Your file has been written to " << fileName;
-
-  outfile.close();
-}
-
-void importFromFile(Stocks collection[], int &size)
-{
-  const int MAX_CHAR = 100;
-  char filePath[MAX_CHAR];
-
-  cout << "Please enter the name of your file" << endl;
-  cin >> filePath;
-  cin.ignore(100, '\n');
-  //getline(cin, filePath[MAX_CHAR], '\n');
-  //cin.getline(filePath, MAX_CHAR);
-
-  char line[MAX_CHAR];
-  double price;
-
-  ifstream inFile;
-
-  inFile.open(filePath);
-
-  if (!inFile.is_open())
-  {
-    cout << "Sorry, but we can't open file " << filePath << ". Please try again." << endl;
-    return;
-  }
-
-  while (inFile.getline(line, MAX_CHAR))
-  {
-    collection[size].setCompany(line);
-
-    inFile.getline(line, MAX_CHAR);
-    collection[size].setSymbol(line);
-
-    inFile >> price;
-    collection[size].setStockPrice(price);
-    inFile.ignore(100, '\n');
-
-    size++;
-  }
-
-  inFile.close();
+  watchlist.addStockToList(icompany, isymbol, istockPrice);
 }

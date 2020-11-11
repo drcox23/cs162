@@ -3,39 +3,42 @@
 // This is the main file of the program that allows the user to add, delete, print, or export their stock watchlist.
 
 #include <iostream>
-#include <string>
+#include <cstring>
 #include "functions.h"
+//#include "collections.h"
 
 using namespace std;
 
 int main()
 {
   int input;
-  int count = 0;
+  //int count = 0;
   Stocks watchlist[MAX_SIZE];
+
+  Collections list;
 
   do
   {
     showOptions(input);
     if (input == 1)
     {
-      importFromFile(watchlist, count);
+      list.importFromFile();
     }
     else if (input == 2)
     {
-      addStock(watchlist, count);
+      addStock(list);
     }
     else if (input == 3)
     {
-      showWatchlist(watchlist, count);
+      list.showWatchlist();
     }
     else if (input == 4)
     {
-      if (count > 0)
+      if (list.getCount() > 0)
       {
-        deleteStock(watchlist, count);
+        list.deleteStock();
         cout << "\nOk. Here is the updated watchlist:" << endl;
-        showWatchlist(watchlist, count);
+        list.showWatchlist();
       }
       else
       {
@@ -44,9 +47,8 @@ int main()
     }
     else if (input == 5)
     {
-      exportToFile(watchlist, count);
+      list.exportToFile();
     }
-
   } while (input != 6);
 
   cout << "Thank you for using our program!! The program shall now quit" << endl;
