@@ -12,8 +12,6 @@ using namespace std;
 int main()
 {
   int input;
-  //int count = 0;
-  Stocks watchlist[MAX_SIZE];
 
   Collections list;
 
@@ -26,7 +24,7 @@ int main()
     }
     else if (input == 2)
     {
-      addStock(list);
+      list.newStock();
     }
     else if (input == 3)
     {

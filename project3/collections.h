@@ -9,6 +9,7 @@ class Collections
 {
 public:
   void addStockToList(const char *, const char *, float);
+  void newStock();
   void showWatchlist(); //print list
   void deleteStock();
   void exportToFile();

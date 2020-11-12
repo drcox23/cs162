@@ -8,13 +8,63 @@
 
 using namespace std;
 
+// add stock to the collection
 void Collections::addStockToList(const char *xcompany, const char *xsymbol, float xprice)
 {
+
   watchlist[count].setCompany(xcompany);
   watchlist[count].setSymbol(xsymbol);
   watchlist[count].setStockPrice(xprice);
 
   count++;
+
+  cout << getCount() << endl;
+}
+
+// get new stock to add from user
+void Collections::newStock()
+{
+  char icompany[MAX_SIZE];
+  char isymbol[MAX_SIZE];
+  float istockPrice;
+
+  cout << "enter company name" << endl;
+  cin >> icompany;
+
+  while (cin.fail())
+  {
+    cin.clear();
+    cin.ignore(200, '\n');
+    cout << "Please enter a valid company name" << endl;
+    cin >> icompany;
+  }
+  cin.ignore(100, '\n');
+
+  cout << "enter stock symbol" << endl;
+  cin >> isymbol;
+
+  while (cin.fail())
+  {
+    cin.clear();
+    cin.ignore(200, '\n');
+    cout << "Please enter a valid stock symbol" << endl;
+    cin >> isymbol;
+  }
+  cin.ignore(100, '\n');
+
+  cout << "enter today's stock price" << endl;
+  cin >> istockPrice;
+
+  while (cin.fail() || istockPrice < 0)
+  {
+    cin.clear();
+    cin.ignore(200, '\n');
+    cout << "Please enter a valid price (number greater than 0)" << endl;
+    cin >> istockPrice;
+  }
+  cin.ignore(100, '\n');
+
+  addStockToList(icompany, isymbol, istockPrice);
 }
 
 // show watchlist of stocks that the user has put together
@@ -99,8 +149,6 @@ void Collections::importFromFile()
   cout << "Please enter the name of your file" << endl;
   cin >> filePath;
   cin.ignore(100, '\n');
-  //getline(cin, filePath[MAX_CHAR], '\n');
-  //cin.getline(filePath, MAX_CHAR);
 
   char line[MAX_CHAR];
   double price;

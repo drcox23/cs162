@@ -1,8 +1,6 @@
 // Douglas Cox
 // This is the implementation file building out the various functions and methods of the program.
 
-#include <iostream>
-#include <fstream>
 #include <cstring>
 #include "stocks.h"
 

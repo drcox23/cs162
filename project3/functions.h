@@ -6,4 +6,3 @@
 // function prototypes
 
 void showOptions(int &);
-void addStock(Collections);
