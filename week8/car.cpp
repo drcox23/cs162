@@ -1,5 +1,5 @@
 // Douglas Cox
-// Week 6, Exercise 3
+// Week 8, Exercise 3
 // implementation file for Car class
 
 #include <iostream>
