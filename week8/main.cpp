@@ -2,16 +2,16 @@
 // CS 162
 // main file for this program which allows users to generate a list of cars
 
-/* Memory Leak output:
-==74483== 
-==74483== HEAP SUMMARY:
-==74483==     in use at exit: 0 bytes in 0 blocks
-==74483==   total heap usage: 11 allocs, 11 frees, 74,860 bytes allocated
-==74483== 
-==74483== All heap blocks were freed -- no leaks are possible
-==74483== 
-==74483== For lists of detected and suppressed errors, rerun with: -s
-==74483== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+/* Valgrind - Memory Leak output:
+==76811== 
+==76811== HEAP SUMMARY:
+==76811==     in use at exit: 0 bytes in 0 blocks
+==76811==   total heap usage: 11 allocs, 11 frees, 74,859 bytes allocated
+==76811== 
+==76811== All heap blocks were freed -- no leaks are possible
+==76811== 
+==76811== For lists of detected and suppressed errors, rerun with: -s
+==76811== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 */
 
 #include <iostream>
