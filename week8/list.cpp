@@ -59,12 +59,33 @@ void List::addToList(Car *newCar)
 
   if (!head)
   {
-    head = tail = newNode;
+    head = newNode;
     return;
   }
 
-  tail->next = newNode;
-  tail = newNode;
+  Node *current = head;
+  Node *previous = NULL;
+
+  while (current)
+  {
+    if (strcmp(current->data->getMake(), newNode->data->getMake()) > 0)
+    {
+      newNode->next = current;
+      if (!previous)
+      {
+        head = newNode;
+      }
+      else
+      {
+        previous->next = newNode;
+      }
+      return;
+    }
+    previous = current;
+    current = current->next;
+  }
+
+  previous->next = newNode;
 }
 
 void List::deleteCar()
