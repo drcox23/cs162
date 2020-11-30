@@ -24,10 +24,20 @@ void List::printList()
   }
 
   Node *current = head;
-  while (current != NULL)
+
+  recPrint(current);
+}
+
+void List::recPrint(Node *currNode)
+{
+  if (!currNode)
   {
-    current->data->print();
-    current = current->next;
+    return;
+  }
+  else
+  {
+    currNode->data->print();
+    return recPrint(currNode->next);
   }
 }
 

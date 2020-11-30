@@ -21,6 +21,7 @@ public:
   void addToList(Car *);
   void printList();
   void deleteCar();
+  void recPrint(Node *);
   List();  //default constructor
   ~List(); // default destructor
 
