@@ -217,9 +217,10 @@ void Collections::importFromFile()
 
   while (inFile.getline(line, MAX_CHAR))
   {
+
     Stocks *newStock;
+    newStock = new Stocks();
     newStock->setCompany(line);
-    //watchlist[count].setCompany(line);
 
     inFile.getline(line, MAX_CHAR);
     newStock->setSymbol(line);
