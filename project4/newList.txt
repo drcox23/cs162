@@ -1,0 +1,9 @@
+Amazon
+AMZN
+3200.2
+Microsoft
+MSFT
+300.2
+Tesla
+TSLA
+2330.32

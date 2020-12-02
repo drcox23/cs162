@@ -1,5 +1,5 @@
 // Douglas Cox
-// CS162 - Project 3
+// CS162 - Project 4
 // This is the header file for the collection class used for this program
 
 #include <cstring>
