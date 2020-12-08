@@ -1,0 +1,84 @@
+===========================
+Final 4 Instructions
+===========================
+
+Do the following two parts and upload the asked for files to
+the assignment folder for Final 4 by the due time
+indicated on the assignment folder. You will have 2 hours and
+50 minutes to do the exam. 
+
+You will need to attend the zoom session and at least type 
+‘here’ at the chat box.  Please don't use audio as noise might
+be disturbing to other students. Please monitor the chat box
+for any updates.
+
+You can ask questions (at the chat box please) and I can either
+answer them or not answer them.  I can clarify what you need to
+do but I cannot give you any help during the exam.
+
+Since I can’t monitor what you will be seeing on your computer,
+you can use notes and the textbook.  However, do not copy and 
+paste large amounts of code from the internet.  I will be copying
+your code into the Google prompt and if your copying large 
+amounts of code it will show up in my search results. If this 
+happens then you will get an automatic zero and will be ask  
+to re-take a makeup exam.
+
+For Part I and II, I will provide you with source code to 
+work with. It will include a main function with some example
+arrays of numbers for you to test your code.  However, when
+I'm grading your submission, I will be using a different set 
+of numbers. So don’t write your code to only work with the 
+given data.
+
+Also, I will be copying your functions over to a different
+main file with the same main function but different data.
+So if you are re-writing the main function for debugging 
+purposes, make sure your code will work with the ORIGINAL 
+main function before you hand it in.
+
+==================================
+Part I Build a List Function
+==================================
+
+Download final4.cpp file from the d2l folder. 
+You will implement a function that will build a 
+linear linked list from an array of
+integers in the FORWARD order (from the end of the
+list).
+
+You be given a Node struct and a head pointer. Note
+that you will need to change this head pointer so
+make sure to make it a reference parameter.
+
+If you need a tail pointer, you can create one as
+a local variable inside the build function. This is
+okay as it is not needed once the list is built. 
+
+===================================== 
+Part II Implement Insert Function
+=====================================
+
+Find the first odd number and insert 100 before
+this node. If there are no odd numbers, insert the
+node at the end.  
+
+Don't change the order of the other elements in the
+list.
+
+Upload the final4.cpp file to the d2l assignment
+folder before the due time.
+
+EXAMPLES
+==========
+BEFORE
+18, 8, 2, 1, 5, 9, 8, 10, 1
+AFTER
+18, 8, 2, 100, 1, 5, 9, 8, 10, 1
+---------
+BEFORE
+10, 8, 2, 4
+AFTER
+10, 8, 2, 4, 100
+
+============
